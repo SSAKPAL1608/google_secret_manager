@@ -1,0 +1,22 @@
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  creationTimestamp: null
+  labels:
+    owner: SSAKPAL1608
+    provider: github
+    repository: react-test
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  name: ssakpal1608-react-test
+  namespace: jx
+spec:
+  httpCloneURL: https://github.com/SSAKPAL1608/react-test.git
+  org: SSAKPAL1608
+  provider: https://github.com
+  providerKind: github
+  providerName: github
+  repo: react-test
+  scheduler:
+    kind: ""
+    name: in-repo
+  url: https://github.com/SSAKPAL1608/react-test

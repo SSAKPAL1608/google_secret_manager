@@ -8,6 +8,7 @@ data:
     in_repo_config:
       enabled:
         SSAKPAL1608/google_secret_manager: true
+        SSAKPAL1608/react-test: true
     plank: {}
     pod_namespace: jx
     prowjob_namespace: jx
@@ -20,6 +21,7 @@ data:
         skip-unknown-contexts: false
       merge_method:
         SSAKPAL1608/google_secret_manager: merge
+        SSAKPAL1608/react-test: merge
       queries:
       - labels:
         - approved
@@ -31,6 +33,7 @@ data:
         - needs-rebase
         repos:
         - SSAKPAL1608/google_secret_manager
+        - SSAKPAL1608/react-test
       - labels:
         - updatebot
         missingLabels:
@@ -41,6 +44,7 @@ data:
         - needs-rebase
         repos:
         - SSAKPAL1608/google_secret_manager
+        - SSAKPAL1608/react-test
       target_url: http://lighthouse-jx.34.170.39.7.nip.io/merge/status
 kind: ConfigMap
 metadata:

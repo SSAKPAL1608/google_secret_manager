@@ -6,6 +6,10 @@ data:
       repos:
       - SSAKPAL1608/google_secret_manager
       require_self_approval: true
+    - lgtm_acts_as_approve: true
+      repos:
+      - SSAKPAL1608/react-test
+      require_self_approval: true
     cat: {}
     cherry_pick_unapproved: {}
     config_updater:
@@ -21,12 +25,31 @@ data:
         name: cd-indicators
       - endpoint: http://lighthouse-webui-plugin.jx.svc.cluster.local/lighthouse/events
         name: lighthouse-webui-plugin
+      SSAKPAL1608/react-test:
+      - endpoint: http://cd-indicators.jx.svc.cluster.local/lighthouse/events
+        name: cd-indicators
+      - endpoint: http://lighthouse-webui-plugin.jx.svc.cluster.local/lighthouse/events
+        name: lighthouse-webui-plugin
     label:
       additional_labels: null
     owners: {}
     plugins:
       SSAKPAL1608/google_secret_manager:
       - config-updater
+      - approve
+      - assign
+      - help
+      - hold
+      - lgtm
+      - lifecycle
+      - override
+      - size
+      - trigger
+      - wip
+      - cat
+      - dog
+      - pony
+      SSAKPAL1608/react-test:
       - approve
       - assign
       - help
@@ -52,6 +75,11 @@ data:
     - repos:
       - SSAKPAL1608/google_secret_manager
       trusted_org: SSAKPAL1608
+    - repos:
+      - SSAKPAL1608/react-test
+      trusted_org: SSAKPAL1608
+    welcome:
+    - message_template: Welcome
 kind: ConfigMap
 metadata:
   creationTimestamp: null
