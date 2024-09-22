@@ -41,7 +41,7 @@ data:
         - needs-rebase
         repos:
         - SSAKPAL1608/google_secret_manager
-      target_url: http://lighthouse-jx./merge/status
+      target_url: http://lighthouse-jx.34.170.39.7.nip.io/merge/status
 kind: ConfigMap
 metadata:
   creationTimestamp: null
