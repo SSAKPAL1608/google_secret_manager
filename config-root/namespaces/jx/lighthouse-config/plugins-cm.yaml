@@ -1,0 +1,61 @@
+apiVersion: v1
+data:
+  plugins.yaml: |
+    approve:
+    - lgtm_acts_as_approve: true
+      repos:
+      - SSAKPAL1608/google_secret_manager
+      require_self_approval: true
+    cat: {}
+    cherry_pick_unapproved: {}
+    config_updater:
+      gzip: false
+      maps:
+        env/prow/job.yaml:
+          name: config
+        env/prow/plugins.yaml:
+          name: plugins
+    external_plugins:
+      SSAKPAL1608/google_secret_manager:
+      - endpoint: http://cd-indicators.jx.svc.cluster.local/lighthouse/events
+        name: cd-indicators
+      - endpoint: http://lighthouse-webui-plugin.jx.svc.cluster.local/lighthouse/events
+        name: lighthouse-webui-plugin
+    label:
+      additional_labels: null
+    owners: {}
+    plugins:
+      SSAKPAL1608/google_secret_manager:
+      - config-updater
+      - approve
+      - assign
+      - help
+      - hold
+      - lgtm
+      - lifecycle
+      - override
+      - size
+      - trigger
+      - wip
+      - cat
+      - dog
+      - pony
+    requiresig: {}
+    sigmention: {}
+    size:
+      l: 0
+      m: 0
+      s: 0
+      xl: 0
+      xxl: 0
+    triggers:
+    - repos:
+      - SSAKPAL1608/google_secret_manager
+      trusted_org: SSAKPAL1608
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: plugins
+  namespace: jx
+  labels:
+    gitops.jenkins-x.io/pipeline: 'namespaces'

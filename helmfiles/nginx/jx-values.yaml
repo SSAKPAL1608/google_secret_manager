@@ -20,16 +20,26 @@ jxRequirements:
     enabled: false
     schedule: ""
   cluster:
+    chartRepository: http://jenkins-x-chartmuseum.jx.svc.cluster.local:8080
+    clusterName: tf-jx-adapted-tapir
     devEnvApprovers:
     - todo
+    dockerRegistryOrg: oci
     environmentGitOwner: todo
     gitKind: github
     gitName: github
     gitServer: https://github.com
+    gke:
+      projectNumber: "257308477133"
     kanikoFlags: --skip-unused-stages --snapshotMode=redo
+    project: test-automation-shreya
     provider: gke
+    registry: us-central1-docker.pkg.dev/test-automation-shreya
+    zone: us-central1-a
   environments:
   - key: dev
+    owner: SSAKPAL1608
+    repository: google_secret_manager
   - key: staging
   - key: production
   ingress:
@@ -39,9 +49,18 @@ jxRequirements:
     tls:
       email: ""
       enabled: false
-      production: false
+      production: true
+  pipelineUser:
+    username: bot_token
   repository: nexus
   secretStorage: gsm
+  storage:
+  - name: logs
+    url: gs://logs-tf-jx-adapted-tapir-fc5854c1005c
+  - name: reports
+    url: gs://reports-tf-jx-adapted-tapir-fc5854c1005c
+  - name: repository
+    url: gs://repository-tf-jx-adapted-tapir-fc5854c1005c
   vault: {}
   webhook: lighthouse
 jxRequirementsIngressExternalDNS:
